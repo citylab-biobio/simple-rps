@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  simple_rps_dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  simple_rps_prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "80:80"
